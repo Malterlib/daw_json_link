@@ -489,7 +489,7 @@ namespace daw::json {
 
 			// libc++ has a non-conforming vector<bool>::const_reference as it isn't
 			// bool https://bugs.llvm.org/show_bug.cgi?id=16077
-#if defined( _LIBCPP_VERSION )
+#if defined( _LIBCPP_VERSION ) && _LIBCPP_VERSION < 15000
 			template<>
 			struct json_deduced_type_map<
 			  typename std::vector<bool>::const_reference> {
